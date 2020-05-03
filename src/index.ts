@@ -1,14 +1,12 @@
 import express from 'express';
-
+import {ApolloServer} from "apollo-server-express";
 
 const app = express();
 const port = 9000;
-const one: number = 1;
-const two: number = 2;
-const three: boolean = true;
 
+const server = new ApolloServer();
+server.applyMiddleware({app, path: '/api'})
 
-app.get('/', (_req, res) => res.send(`${one}+${two}=${one + two}`));
 app.listen(port);
 
 console.log('rebase test')
